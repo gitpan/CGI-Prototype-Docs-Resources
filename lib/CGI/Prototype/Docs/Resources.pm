@@ -25,7 +25,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 # Preloaded methods go here.
@@ -39,8 +39,6 @@ __END__
 CGI::Prototype::Docs::Resources - links to CGI::Prototype resources
 
 =head1 Mailing list
-
-=head1 CGI::Prototype Mailing List
 
 There is now a mailing list for discussing the use of 
 CGI::Prototype, a Perl module which allows for class and
@@ -82,6 +80,13 @@ show in the archive.
 
 
 =head1 Tutorials / Overviews
+
+=head2 Linux Magazine "Introduction to CGI::Prototype"
+
+L<http://www.stonehenge.com/merlyn/LinuxMag/col70.html>
+L<http://www.stonehenge.com/merlyn/LinuxMag/col71.html>
+L<http://www.stonehenge.com/merlyn/LinuxMag/col72.html>
+
 
 =head2 Ourmedia's "Introduction to CGI::Prototype"
 
@@ -137,7 +142,7 @@ L<http://perlmonks.org/?node_id=411760>
 
 =head1 AUTHOR
 
-Terrence Brannon, E<lt>terry@E<gt>
+Terrence Brannon, bauhaus@metaperl.com
 
 =head1 COPYRIGHT AND LICENSE
 

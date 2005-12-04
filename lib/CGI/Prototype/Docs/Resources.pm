@@ -25,7 +25,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 # Preloaded methods go here.
@@ -139,10 +139,61 @@ L<http://perlmonks.org/?node_id=410803>
 L<http://perlmonks.org/?node_id=411760>
 
 
+=head1 Tips and Tricks
+
+=head2 Setting up under mod_perl
+
+=head3 startup.pl
+
+ use lib qw( 
+  /home/tbrannon/cvs/blue/wagsvr/install/httpd/prefork/modperl 
+  /home/tbrannon/cvs/blue/wagsvr 
+  /home/tbrannon/cvs/blue/wagsvr/install 
+ ); 
+ 
+ warn 'startup complete'; 
+ 1; 
+
+=head2 httpd.conf
+
+ <Location /> 
+   SetHandler perl-script 
+   PerlResponseHandler Blue::App 
+ </Location> 
+
+=head2 Blue/App.pm
+
+ 
+ package Blue::App; 
+ 
+ use strict; 
+ use warnings; 
+ 
+ use Apache2::RequestRec (); 
+ use Apache2::RequestIO (); 
+ 
+ use Apache2::Const -compile => qw(OK); 
+ 
+ use base qw(CGI::Prototype); 
+ 
+ sub handler { 
+   my $r = shift; 
+ 
+   __PACKAGE__->reflect->addSlot(r => $r); 
+   __PACKAGE__->activate; 
+ 
+   return Apache2::Const::OK; 
+ }
+ 
+ 
+ 
+ 1; 
+
+
 
 =head1 AUTHOR
 
-Terrence Brannon, bauhaus@metaperl.com
+Terrence Brannon, metaperl@gmail.com
 
 =head1 COPYRIGHT AND LICENSE
 
